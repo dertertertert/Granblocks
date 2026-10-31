@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Granblox</title>
+<style>
+  @font-face {
+    font-family: "RobloxComic";
+    src: url("comic.woff2") format("woff2"), url("comic.woff") format("woff"), url("comic.ttf") format("truetype");
+    font-display: swap;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #ffffff; font-family: "RobloxComic", "Comic Sans MS", "Comic Neue", cursive; font-size: clamp(11px, 0.4vw + 8px, 14px); color: #000; }
+  a { color: #3b4a9c; }
+  img { max-width: 100%; }
+  #wrap { width: 100%; max-width: 1200px; margin: 0 auto; background: #c3cdee; border-left: 1px solid #8e9ccf; border-right: 1px solid #8e9ccf; min-height: 100vh; }
+
+  /* topo */
+  #header { background: #8e9ccf; text-align: center; padding: 6px 0 2px 0; border-bottom: 2px solid #6b78b0; }
+  #logo img { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+  #nav { background: #c3cdee; text-align: center; padding: 3px 6px; font-size: 1.1em; border-bottom: 1px solid #8e9ccf; }
+  #nav a { text-decoration: none; padding: 0 4px; display: inline-block; }
+  #nav a:hover { text-decoration: underline; }
+
+  #content { padding: 10px 14px; }
+  h1 { font-size: 1.6em; margin: 6px 0 2px 0; color: #000; }
+  .tagline { margin: 0 0 10px 0; }
+
+  /* duas colunas que viram uma em telas pequenas */
+  .cols { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 10px; align-items: start; }
+
+  .panel { background: #fff; border: 1px solid #8e9ccf; margin-bottom: 10px; }
+  .panel .ph { background: #8e9ccf; color: #fff; font-weight: bold; padding: 2px 6px; }
+  .panel .pb { padding: 6px; }
+
+  /* Multiplayer games */
+  .games { border: 2px solid #2e7d5b; background: #fff; padding: 4px; margin-bottom: 10px; position: relative; }
+  .games .title { font-weight: bold; font-size: 1.2em; color: #1f5f45; padding: 2px 2px 4px 2px; }
+  .games .shot { position: relative; }
+  .games .shot > img { display: block; width: 100%; height: auto; border: 1px solid #666; }
+  .games .play { position: absolute; right: 6px; top: 6px; }
+  .games .play img { display: block; }
+
+  /* cool places */
+  .places { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+  .places img { display: block; width: 100%; height: auto; border: 1px solid #666; }
+
+  #footer { text-align: center; font-size: 0.9em; padding: 8px 6px 14px 6px; color: #333; }
+
+  /* tablet e celular */
+  @media (max-width: 760px) {
+    .cols { grid-template-columns: minmax(0, 1fr); }
+    #content { padding: 8px; }
+    .places { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 420px) {
+    #wrap { border-left: 0; border-right: 0; }
+  }
+</style>
+</head>
+<body>
+<div id="wrap">
+
+  <div id="header">
+    <div id="logo"><img src="logo.png" alt="Granblox"></div>
+  </div>
+  <div id="nav">
+    <a href="index.html">Home</a> |
+    <a href="games.html">Games</a> |
+    <a href="browse.html">Browse</a> |
+    <a href="download.html">Download</a> |
+    <a href="info.html">Info</a>
+  </div>
+
+  <div id="content">
+    <h1>Welcome to Granblox!</h1>
+    <p class="tagline">Play online with others, or relax and work on your personal creation!</p>
+
+    <div class="cols">
+      <div class="main">
+        <div class="games">
+          <div class="title">Multiplayer Games</div>
+          <div class="shot">
+            <img src="game.png" alt="Multiplayer Games">
+            <a class="play" href="games.html"><img src="play.png" alt="play"></a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="ph">Cool Places</div>
+          <div class="pb">
+            <div class="places">
+              <img src="place1.png" alt="">
+              <img src="place2.png" alt="">
+              <img src="place3.png" alt="">
+              <img src="place4.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="side">
+        <div id="loginPanel"></div>
+        <div id="peoplePanel"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    Granblox is a fan-made revival project and is not affiliated with Roblox.<br>
+    <a href="info.html">Info</a> | <a href="games.html">Games</a> | <a href="forum.html">Forum</a>
+  </div>
+</div>
+
+<script type="module" src="login.js" onerror="document.getElementById('loginPanel').innerHTML='<div class=&quot;panel&quot;><div class=&quot;pb&quot;>login.js not found. Upload it to the same folder as index.html.</div></div>'"></script>
+</body>
+</html>
