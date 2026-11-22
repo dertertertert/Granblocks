@@ -1,0 +1,13 @@
+# Configuracao do Codemagic (codemagic.io)
+workflows:
+  android-debug:
+    name: APK debug
+    max_build_duration: 30
+    instance_type: mac_mini_m2
+    environment:
+      java: 17
+    scripts:
+      - name: Compilar o APK
+        script: gradle assembleDebug --no-daemon
+    artifacts:
+      - app/build/outputs/**/*.apk
